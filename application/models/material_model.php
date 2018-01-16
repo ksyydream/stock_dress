@@ -58,6 +58,7 @@ class Material_model extends MY_Model
     public function save_material(){
         $data = array(
             'material_name'=>$this->input->post('material_name'),
+            'flag'=>$this->input->post('flag')? 1 : 2,
             'create_date'=>date('Y-m-d H:i:s'),
             'modify_date'=>date('Y-m-d H:i:s'),
             'create_user'=>$this->session->userdata('user_id'),
@@ -79,7 +80,7 @@ class Material_model extends MY_Model
             if($check){
                 return -2;
             }
-            $rs = $this->db->insert('material',$data);
+            $rs = $this->db->where('id',$this->input->post('material_id'))->update('material',$data);
         }
 
         if($rs)

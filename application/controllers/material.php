@@ -13,16 +13,16 @@ class Material extends MY_Controller {
 		$this->load->model('material_model');
 	}
 
-	public function list_cust(){
+	public function list_material(){
 		$data = $this->material_model->list_material();
 		$this->load->view('material/list_material.php',$data);
 	}
 
-	public function add_cust(){
+	public function add_material(){
 		$this->load->view('material/add_material.php');
 	}
 
-	public function save_cust(){
+	public function save_material(){
 		$rs = $this->material_model->save_material();
 		if ($rs === 1) {
 			form_submit_json("200", "操作成功", "list_material");

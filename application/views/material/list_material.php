@@ -1,4 +1,4 @@
-<form id="pagerForm" method="post" action="<?php echo site_url('manage/list_cust')?>">
+<form id="pagerForm" method="post" action="<?php echo site_url('material/list_material')?>">
 	<input type="hidden" name="pageNum" value="<?php echo $pageNum;?>" />
 	<input type="hidden" name="numPerPage" value="<?php echo $numPerPage;?>" />
 	<input type="hidden" name="num" value="<?php echo $num;?>" />
@@ -7,11 +7,11 @@
 </form>
 
 <div class="pageHeader">
-	<form onsubmit="return navTabSearch(this);" action="<?php site_url('cust/list_cust')?>" method="post">
+	<form onsubmit="return navTabSearch(this);" action="<?php site_url('material/list_material')?>" method="post">
 		<div class="searchBar">
 			<table class="searchContent" id="search_purchase_order">
 				<tr>
-					<td><label>面料名称：</label><input type="text" size="16" name="name" value="<?php echo $name;?>" /></td>
+					<td><label>面料名称：</label><input type="text" size="16" name="material_name" value="<?php echo $material_name;?>" /></td>
 				</tr>
 			</table>
 			<div class="subBar">
@@ -27,7 +27,7 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" href="<?php echo site_url('cust/add_cust')?>" target="navTab" rel="add_cust" title="新建"><span>新建</span></a></li>
+			<li><a class="add" href="<?php echo site_url('material/add_material')?>" target="dialog" rel="add_material" title="新建"><span>新建</span></a></li>
 		</ul>
 	</div>
 
@@ -35,9 +35,7 @@
 	<table class="list" width="100%" targetType="navTab" asc="asc" desc="desc">
 		<thead>
 			<tr>
-				<th width="120">姓名</th>
-				<th width="120">手机</th>
-				<th>备注</th>
+				<th >面料名称</th>
 				<th width="120">创建时间</th>
 				<th width="120">状态</th>
 			</tr>
@@ -48,15 +46,13 @@
             	    foreach ($res_list as $row):		               
             ?>		            
             			<tr target="id" rel=<?php echo $row->id; ?>>
-            				<td><?php echo $row->name;?></td>
-            				<td><?php echo $row->phone;?></td>
-            				<td><?php echo $row->remark;?></td>
-            				<td><?php echo $row->cdate;?></td>
+            				<td><?php echo $row->material_name;?></td>
+            				<td><?php echo $row->create_date;?></td>
 							<td><?php
 								if($row->flag == 1){
 									echo '<font color="blue">使用</font>';
 								}else{
-									echo '<font color="red">暂停</font>';
+									echo '<font color="red">停用</font>';
 								}
 								?></td>
             			</tr>

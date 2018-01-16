@@ -96,7 +96,7 @@ function close_all_navtab(){
 					<div class="accordionContent">
 						<ul class="tree">
 							<li><a href="<?php echo site_url('manage/list_product_color');?>" target="navTab" rel="list_product_color" onclick="close_all_navtab()">款式颜色</a></li>
-							<li><a href="<?php echo site_url('manage/list_product');?>" target="navTab" rel="list_product" onclick="close_all_navtab()">款式管理</a></li>
+							<li><a href="<?php echo site_url('material/list_material');?>" target="navTab" rel="list_material" onclick="close_all_navtab()">面料型号</a></li>
 						</ul>
 					</div>
 
